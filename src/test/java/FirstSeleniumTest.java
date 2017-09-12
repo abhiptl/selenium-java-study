@@ -40,9 +40,9 @@ public class FirstSeleniumTest {
 
 		assertThat(webDriver.getTitle(), is(equalTo("Google")));
 
-		File scrFile = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
-// Now you can do whatever you need to do with it, for example copy somewhere
-		FileUtils.copyFile(scrFile, new File("/home/ubuntu/selenium-deploys/screenshot.png"));
+		/*File scrFile = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
+
+		FileUtils.copyFile(scrFile, new File("/home/ubuntu/selenium-deploys/screenshot.png"));*/
 
 		webDriver.quit();
 	}
