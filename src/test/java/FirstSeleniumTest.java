@@ -33,7 +33,7 @@ public class FirstSeleniumTest {
 		WebDriver webDriver = new FirefoxDriver();
 		webDriver.get("https://www.google.com");
 
-		assertThat(webDriver.getTitle(), is(equalTo("Google")));
+		assertThat(webDriver.getTitle(), is(equalTo("Googl")));
 
 		webDriver.quit();
 	}
