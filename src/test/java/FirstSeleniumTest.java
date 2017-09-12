@@ -1,7 +1,12 @@
+import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.io.File;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -29,11 +34,15 @@ public class FirstSeleniumTest {
 	}*/
 
 	@Test
-	public void testGoogleHomeWithFirefox() {
+	public void testGoogleHomeWithFirefox() throws Exception {
 		WebDriver webDriver = new FirefoxDriver();
 		webDriver.get("https://www.google.com");
 
 		assertThat(webDriver.getTitle(), is(equalTo("Google")));
+
+		File scrFile = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
+// Now you can do whatever you need to do with it, for example copy somewhere
+		FileUtils.copyFile(scrFile, new File("/home/ubuntu/selenium-deploys/screenshot.png"));
 
 		webDriver.quit();
 	}
